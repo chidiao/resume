@@ -1,7 +1,9 @@
 <template>
   <div class="w-full p-5">
     <WorkOw />
+
+    <WorkOlyx />
   </div>
 </template>
 
-<style scoped></style>
+<script setup></script>

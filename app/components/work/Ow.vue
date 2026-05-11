@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full grid gap-8 lg:gap-16 xl:gap-24 md:grid-cols-2 md:items-center">
+  <div class="w-full grid gap-8 lg:gap-16 xl:gap-24 md:grid-cols-2 md:items-center py-5 md:py-16">
     <div class="relative w-full h-auto aspect-square">
       <div class="absolute top-1/2 -translate-y-1/2 w-full overflow-hidden z-10 left-0">
         <WorkPc class="w-full relative">
@@ -33,19 +33,7 @@
       </div>
     </div>
 
-    <div class="max-w-[500px]">
-      <h3 class="text-xl lg:text-3xl text-[#00e5ff] flex gap-[14px] items-center py-5">企业响应式官网</h3>
-
-      <div class="grid gap-4 text-sm text-gray-200 py-5 line-height-loose">
-        <div v-for="(item, index) in experienceList" :key="index" class="flex">
-          <SvgCheck class="stroke-cyan-500 size-5 mr-2 mt-1" />
-
-          <p class="flex-1">{{ item }}</p>
-        </div>
-      </div>
-
-      <WorkTags :tags="tags" />
-    </div>
+    <WorkDescription class="max-w-[500px]" title="企业响应式官网" :experienceList="experienceList" :tags="tags" />
   </div>
 </template>
 
@@ -54,14 +42,6 @@ import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Controller, Autoplay } from 'swiper/modules'
 import 'swiper/css'
-
-const SvgCheck = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-    </svg>
-  )
-}
 
 const experienceList = [
   '拥有丰富企业官网开发经验，基于 Vue、Nuxt 进行项目搭建与业务开发，掌握 SPA、SSR、SSG 等多种渲染模式',
