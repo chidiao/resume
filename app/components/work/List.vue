@@ -1,8 +1,10 @@
 <template>
   <div class="w-full p-5">
-    <WorkOw />
+    <WorkOfficialWebsite />
 
-    <WorkOlyx />
+    <WorkOlympusX />
+
+    <WorkMiniProgram />
   </div>
 </template>
 
