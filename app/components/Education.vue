@@ -1,7 +1,5 @@
 <template>
-  <CommonSectionTitle title="Education" class="py-8" />
-
-  <section class="py-20 bg-[#0a0f1e] text-gray-200 font-mono">
+  <section class="py-5 bg-[#0a0f1e] text-gray-200 font-mono">
     <div class="max-w-4xl mx-auto px-6">
       <div
         class="bg-[#131b2d] border border-cyan-500/20 rounded-xl p-8 hover:border-cyan-400/50 transition-all shadow-lg shadow-cyan-400/5"

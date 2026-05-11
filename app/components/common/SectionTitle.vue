@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-[#00e5ff] flex items-center gap-3 mt-5 mb-8 px-4">
+  <h2 class="text-[#00e5ff] flex items-center gap-3 p-5 md:py-8 xl:py-16">
     <span class="text-xl">//</span>
     <span class="text-3xl">{{ title }}</span>
   </h2>

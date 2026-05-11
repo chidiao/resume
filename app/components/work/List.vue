@@ -1,10 +1,6 @@
 <template>
-  <div class="w-full">
-    <div class="p-4">
-      <CommonSectionTitle title="Projects" />
-
-      <WorkOw />
-    </div>
+  <div class="w-full p-5">
+    <WorkOw />
   </div>
 </template>
 
