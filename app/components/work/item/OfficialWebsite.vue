@@ -2,7 +2,7 @@
   <div class="w-full grid gap-8 lg:gap-16 xl:gap-24 md:grid-cols-2 md:items-center py-5 md:py-16">
     <div class="relative w-full h-auto aspect-square">
       <div class="absolute top-1/2 -translate-y-1/2 w-full overflow-hidden z-10 left-0">
-        <WorkPc class="w-full relative">
+        <WorkPreviewPc class="w-full relative">
           <Swiper
             :autoplay="{ delay: 5000 }"
             :modules="[Controller, Autoplay]"
@@ -14,11 +14,11 @@
               <img :src="slide" />
             </SwiperSlide>
           </Swiper>
-        </WorkPc>
+        </WorkPreviewPc>
       </div>
 
       <div class="absolute top-1/2 -translate-y-1/2 right-8 -lg:right-12 z-12">
-        <WorkMb class="w-[160px] lg:w-[200px] xl:w-[240px]">
+        <WorkPreviewMb class="w-[160px] lg:w-[200px] xl:w-[240px]">
           <Swiper
             :modules="[Controller, Autoplay]"
             @swiper="setMbController"
@@ -29,7 +29,7 @@
               <img :src="slide" />
             </SwiperSlide>
           </Swiper>
-        </WorkMb>
+        </WorkPreviewMb>
       </div>
     </div>
 

@@ -1,10 +1,10 @@
 <template>
   <div class="w-full p-5">
-    <WorkOfficialWebsite />
+    <WorkItemOfficialWebsite />
 
-    <WorkOlympusX />
+    <WorkItemOlympusX />
 
-    <WorkMiniProgram />
+    <WorkItemMiniProgram />
   </div>
 </template>
 
