@@ -1,66 +1,79 @@
 <template>
-  <div class="device-stack">
-    <!-- 底层：平板/PC 预览 -->
-    <div class="device device-tablet">
-      <img src="/img/marsx-old-ow-pc.jpg" alt="Tablet Preview" />
-    </div>
-    <!-- 上层：手机预览 -->
-    <div class="device device-phone">
-      <img src="/img/marsx-old-ow-mb.jpg" alt="Phone Preview" />
+  <div class="preview-links-box">
+    <div class="preview-header">相关项目预览</div>
+
+    <div class="link-list">
+      <a
+        v-for="(item, idx) in linkList"
+        :key="idx"
+        :href="item.url"
+        target="_blank"
+        rel="noopener"
+        class="link-item"
+      >
+        <span class="link-label">{{ item.label }}</span>
+        <span class="link-arrow">→</span>
+      </a>
     </div>
   </div>
 </template>
 
+<script setup>
+defineProps({
+  linkList: {
+    type: Array,
+    default: () => []
+  }
+})
+</script>
+
 <style scoped>
-.device-stack {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  perspective: 1000px; /* 关键：开启3D透视，让旋转更有空间感 */
+.preview-links-box {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.device {
-  position: absolute;
-  border-radius: 20px;
-  overflow: hidden;
-  background: #111;
-}
-.device img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.preview-header {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
 }
 
-/* 底层平板：靠后、缩小、柔和阴影 */
-.device-tablet {
-  z-index: 1;
-  width: 90%;
-  height: 80%;
-  left: 0;
-  bottom: 0;
-  transform: scale(0.95);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+.link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* 上层手机：靠前、放大、旋转、强阴影 */
-.device-phone {
-  z-index: 2;
-  width: 35%;
-  aspect-ratio: 9 / 19.5;
-  right: 10%;
-  top: 10%;
-  /* 核心：缩放+旋转+3D透视 */
-  transform: scale(1.05) rotate(-8deg);
-  /* 强阴影，做出悬浮感 */
-  box-shadow: 
-    0 20px 40px rgba(0,0,0,0.5),
-    0 10px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
+.link-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-width: 160px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
-/* hover 增强互动空间感 */
-.device-stack:hover .device-phone {
-  transform: scale(1.08) rotate(-4deg) translateY(-10px);
+.link-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.link-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.link-arrow {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 8px;
 }
 </style>

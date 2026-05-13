@@ -5,6 +5,8 @@
     <WorkItemOlympusX />
 
     <WorkItemMiniProgram />
+
+    <WorkItemFlutterApp />
   </div>
 </template>
 

@@ -1,6 +1,10 @@
 <template>
   <WorkAppGallery v-model:activeIndex="activeIndex" :appList="appList">
-    <WorkDescription title="微信小程序" :experienceList="experienceList" :tags="tags" />
+    <div class="w-full grid gap-5 py-5 md:grid-cols-2 md:items-center">
+      <WorkDescription title="微信小程序" :experienceList="experienceList" :tags="tags" />
+
+      <img src="/img/mini-marsx.jpg" class="w-full h-auto sm:w-1/2 mx-auto max-w-[200px]" />
+    </div>
   </WorkAppGallery>
 </template>
 

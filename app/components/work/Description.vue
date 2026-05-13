@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h3 class="text-xl lg:text-3xl text-[#00e5ff] flex gap-[14px] items-center py-5">{{ title }}</h3>
+  <div class="grid gap-5">
+    <h3 class="text-xl lg:text-3xl text-[#00e5ff] flex gap-[14px] items-center">{{ title }}</h3>
 
-    <div class="grid gap-4 text-sm text-gray-200 py-5 line-height-loose">
+    <div class="grid gap-4 text-sm text-gray-200 line-height-loose">
       <div v-for="(item, index) in experienceList" :key="index" class="flex">
         <SvgCheck class="stroke-cyan-500 size-5 mr-2 mt-1" />
 
@@ -11,6 +11,10 @@
     </div>
 
     <WorkTags :tags="tags || []" />
+
+    <div>
+      <slot></slot>
+    </div>
   </div>
 </template>
 

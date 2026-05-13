@@ -33,7 +33,11 @@
       </div>
     </div>
 
-    <WorkDescription class="max-w-[500px]" title="企业响应式官网" :experienceList="experienceList" :tags="tags" />
+    <div class="max-w-[500px]">
+      <WorkDescription title="企业响应式官网" :experienceList="experienceList" :tags="tags">
+        <WorkPreviewLinks title="在线预览：" :linkList="links" />
+      </WorkDescription>
+    </div>
   </div>
 </template>
 
@@ -42,6 +46,12 @@ import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Controller, Autoplay } from 'swiper/modules'
 import 'swiper/css'
+
+const links = [
+  { label: 'Panda', url: 'https://panda.chidiao.xin/' },
+  { label: 'Tank', url: 'https://tank.chidiao.xin/' },
+  { label: 'MarsX', url: 'https://marsx.itopline.com/' }
+]
 
 const experienceList = [
   '拥有丰富企业官网开发经验，基于 Vue、Nuxt 进行项目搭建与业务开发，掌握 SPA、SSR、SSG 等多种渲染模式',

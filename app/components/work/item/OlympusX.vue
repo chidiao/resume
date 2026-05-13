@@ -1,11 +1,18 @@
 <template>
   <WorkAppGallery v-model:activeIndex="activeIndex" :appList="appList">
-    <WorkDescription title="游戏社区H5" :experienceList="experienceList" :tags="tags" />
+    <WorkDescription title="游戏社区H5" :experienceList="experienceList" :tags="tags">
+      <WorkPreviewLinks title="前往各应用商店体验：" :linkList="links" />
+    </WorkDescription>
   </WorkAppGallery>
 </template>
 
 <script setup>
 const activeIndex = ref(0)
+
+const links = [
+  { label: 'OlympusX', url: 'https://sj.qq.com/appdetail/com.itopline.olympusx' },
+  { label: 'MarsXAI', url: 'https://sj.qq.com/appdetail/com.itopline.marsx.ai' }
+]
 
 const appList = ref([
   {
