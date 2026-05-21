@@ -14,7 +14,7 @@
       <ExperienceSection />
     </div>
 
-    <div id="project" class="container mx-auto">
+    <div id="projects" class="container mx-auto">
       <CommonSectionTitle title="Projects" />
 
       <ProjectsSection />

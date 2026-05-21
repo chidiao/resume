@@ -25,12 +25,12 @@
 
         <!-- 简短描述 -->
         <p class="my-6 text-lg leading-relaxed text-gray-300 md:text-xl">
-          6年经验 · 全栈倾向<br class="hidden sm:block" />
+          6年经验<br class="hidden sm:block" />
           深耕
           <span class="font-semibold text-white">Vue3 / Nuxt / UniApp</span>
-          跨端开发，<br class="hidden sm:block" />
+          前端开发，<br class="hidden sm:block" />
           具备
-          <span class="font-semibold text-white">Web3 · IM · AI语音集成</span>
+          <span class="font-semibold text-white">Web3 · IM · Flutter</span>
           实战经验。
         </p>
 
@@ -43,7 +43,8 @@
             查看项目作品
           </a>
           <a
-            href="#"
+            href="/孙颖洲2026.pdf"
+            download
             class="rounded-full border border-gray-600 px-8 py-3 font-medium transition-all hover:border-gray-400 hover:bg-white/10"
           >
             下载简历 PDF
@@ -89,9 +90,6 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
-// 纯 CSS 网格样式（完全模仿示例的线性渐变方案）
 const gridStyle = computed(() => ({
   backgroundImage: `
     linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
