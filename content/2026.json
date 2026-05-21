@@ -1,0 +1,217 @@
+{
+  "title": "2026",
+  "basic": {
+    "name": "孙颖洲",
+    "title": "前端工程师",
+    "employementStatus": "离职",
+    "email": "sunyz94123@qq.com",
+    "phone": "",
+    "location": "河南/新乡",
+    "birthDate": "1994/12",
+    "fieldOrder": [
+      {
+        "id": "1",
+        "key": "name",
+        "label": "姓名",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "2",
+        "key": "title",
+        "label": "职位",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "3",
+        "key": "employementStatus",
+        "label": "状态",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "4",
+        "key": "birthDate",
+        "label": "生日",
+        "type": "date",
+        "visible": true
+      },
+      {
+        "id": "5",
+        "key": "email",
+        "label": "邮箱",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "6",
+        "key": "phone",
+        "label": "电话",
+        "type": "text",
+        "visible": true
+      },
+      {
+        "id": "7",
+        "key": "location",
+        "label": "所在地",
+        "type": "text",
+        "visible": true
+      }
+    ],
+    "icons": {
+      "email": "Mail",
+      "phone": "Phone",
+      "birthDate": "CalendarRange",
+      "employementStatus": "Briefcase",
+      "location": "MapPin"
+    },
+    "photoConfig": {
+      "width": 90,
+      "height": 120,
+      "aspectRatio": "1:1",
+      "borderRadius": "none",
+      "customBorderRadius": 0,
+      "visible": true
+    },
+    "customFields": [
+      {
+        "id": "f62e0baa-ab49-4f74-bd52-63cc77715b9d",
+        "label": "主页",
+        "value": "https://me.chidiao.xin",
+        "icon": "Globe",
+        "visible": true,
+        "displayLabel": false
+      }
+    ],
+    "photo": "",
+    "githubKey": "",
+    "githubUseName": "",
+    "githubContributionsVisible": false,
+    "layout": "left"
+  },
+  "education": [
+    {
+      "id": "b95ef362-1577-4602-9c06-021ed424a5ab",
+      "school": "河南城建学院",
+      "major": "信息管理与信息系统",
+      "degree": "本科",
+      "startDate": "2012/09",
+      "endDate": "2016/07",
+      "description": "",
+      "visible": true
+    }
+  ],
+  "skillContent": "",
+  "selfEvaluationContent": "",
+  "experience": [
+    {
+      "id": "fdaec1fc-0457-4482-a2c2-f68b19bc97b4",
+      "company": "洛阳蓝景科技",
+      "position": "前端工程师",
+      "date": "2023/03 - 2026/05",
+      "details": "<ul><li><p>负责多端产品线前端开发与维护工作，主力使用 Vue3、Nuxt、UniApp 完成需求开发。</p></li><li><p>熟悉 Flutter 技术，能够独立完成页面 UI 开发、布局编写与接口数据联调等工作。</p></li><li><p>参与游戏社区类多端应用研发，同时负责网络钱包、交易平台相关项目开发与后期维护，独立完成多款响应式企业官网搭建开发。</p></li><li><p>参与多款游戏社区、网络钱包、响应式企业官网等应用的开发与维护。</p></li></ul>",
+      "visible": true
+    },
+    {
+      "id": "d9d08e71-579e-4d69-9855-04d95ac1d68a",
+      "company": "企大咖",
+      "position": "前端工程师",
+      "date": "2020/05 - 2022/06",
+      "details": "<ul><li><p>负责响应式官网、企业管理后台、uni-app（小程序+App）的开发与维护。</p></li></ul>",
+      "visible": true
+    },
+    {
+      "id": "d02eb259-2d6a-47be-85c7-ef03531b5401",
+      "company": "正度科技",
+      "position": "前端工程师",
+      "date": "2019/07 - 2020/03",
+      "details": "<ul><li><p>负责Web及小程序开发，完成页面实现与功能落地，积累了一定的项目经验。</p></li></ul>",
+      "visible": true
+    }
+  ],
+  "draggingProjectId": null,
+  "projects": [
+    {
+      "id": "675a355d-be35-4ff9-a8b0-c9f3d5a89b28",
+      "name": "MarsX/OlympusX/Rustar游戏社区应用",
+      "role": "前端开发",
+      "date": "2026/01 - 2026/01",
+      "description": "<ul><li><p>负责游戏社区纯 H5 应用前端开发，实现动态发帖、评论互动等社交功能</p></li><li><p>接入腾讯 IM 即时通讯 SDK，完成实时聊天、消息同步与会话管理等基础能力</p></li><li><p>负责项目全页面 UI 定制与视觉还原，实现个性化界面样式及交互视觉效果</p></li><li><p>集成阿里云语音服务，实现语音转文字、文字转语音、语音合成与流式数据接收，支撑 AI 聊天交互</p></li><li><p>参与 Flutter 混合应用融合开发，完成 H5 与原生端的通讯适配及体验优化</p></li></ul>",
+      "visible": true
+    },
+    {
+      "id": "70e4ca18-2002-43fc-b08b-c140e02cb449",
+      "name": "uniapp小程序+App",
+      "role": "前端开发",
+      "date": "2026/01 - 2026/01",
+      "description": "<ul><li><p>基于 uni-app 框架开发微信小程序，完成项目页面搭建与业务功能开发</p></li><li><p>负责页面交互逻辑实现、数据接口对接、路由管理与状态维护</p></li><li><p>根据设计需求完成 UI 视觉还原与样式定制，保障界面展示一致性</p></li><li><p>处理小程序权限适配、版本更新、异常处理及体验优化相关工作</p></li></ul>",
+      "visible": true
+    },
+    {
+      "id": "8ac132c1-b2d1-4eaa-8432-cdf98b46a4a1",
+      "name": "企业响应式官网",
+      "role": "前端开发",
+      "date": "2026/01 - 2026/01",
+      "description": "<ul><li><p>拥有丰富企业官网开发经验，基于 Vue、Nuxt 进行项目搭建与业务开发，掌握 SPA、SSR、SSG 等多种渲染模式</p></li><li><p>熟练使用 TailwindCSS、UnoCSS 原子化方案开展响应式开发，精准适配 PC、平板、移动端全尺寸屏幕布局</p></li><li><p>熟练运用 Swiper、GSAP 等各类前端插件，实现多样化页面动画与交互</p></li><li><p>独立完成项目 国际化 i18n、通用业务组件封装、路由规整、浏览器兼容适配、页面性能优化 等前端核心开发工作</p></li></ul>",
+      "visible": true
+    },
+    {
+      "id": "ce9efea2-a732-431a-84c1-291ca73c65a1",
+      "name": "web3 dapp类应用",
+      "role": "前端开发",
+      "date": "2026/01 - 2026/01",
+      "description": "<ul><li><p>基于 Vue3 开发 Web3 去中心化前端应用，使用 web3.js、Wagmi等库实现区块链链上交互。</p></li><li><p>集成 MetaMask 小狐狸钱包完成钱包连接登录、账户地址展示、资产余额查询、代币发送与接收等核心功能。</p></li><li><p>使用 Klinecharts 图表库实现资产价格趋势折线图展示，完成数据可视化。</p></li></ul>",
+      "visible": true
+    }
+  ],
+  "menuSections": [
+    {
+      "id": "basic",
+      "title": "基本信息",
+      "icon": "👤",
+      "enabled": true,
+      "order": 0
+    },
+    {
+      "id": "education",
+      "title": "教育经历",
+      "icon": "🎓",
+      "enabled": true,
+      "order": 1
+    },
+    {
+      "id": "experience",
+      "title": "工作经验",
+      "icon": "💼",
+      "enabled": true,
+      "order": 2
+    },
+    {
+      "id": "projects",
+      "title": "项目经历",
+      "icon": "🚀",
+      "enabled": true,
+      "order": 3
+    }
+  ],
+  "certificates": [],
+  "customData": {},
+  "activeSection": "education",
+  "globalSettings": {
+    "baseFontSize": 16,
+    "pagePadding": 32,
+    "paragraphSpacing": 12,
+    "lineHeight": 1.5,
+    "sectionSpacing": 10,
+    "headerSize": 18,
+    "subheaderSize": 16,
+    "useIconMode": true,
+    "themeColor": "#4B0082",
+    "centerSubtitle": true
+  },
+  "id": "a0445c05-180f-4687-a4fe-e1390e4364f1",
+  "createdAt": "2026-05-18T02:00:36.936Z",
+  "updatedAt": "2026-05-19T08:03:05.646Z",
+  "templateId": "classic"
+}

@@ -10,11 +10,13 @@
 
 ![Logo](../public/img/logo-hmc.jpg)
 
-![截图1](../public/img/hmc-1.jpg)
+![截图1](../public/img/dapp/hmc-1.jpg)
 
-![截图2](../public/img/hmc-2.jpg)
+![截图2](../public/img/dapp/hmc-2.jpg)
 
-![截图3](../public/img/hmc-3.jpg)
+![截图3](../public/img/dapp/hmc-3.jpg)
+
+## ClicksX
 
 ## Rustar Mining
 

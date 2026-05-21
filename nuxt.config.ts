@@ -6,6 +6,14 @@ export default defineNuxtConfig({
     '/**': { ssr: false }
   },
   modules: ['@unocss/nuxt'],
+  vite: {
+    optimizeDeps: {
+      include: [
+        'swiper/modules',
+        'swiper/vue',
+      ]
+    }
+  },
   app: {
     head: {
       title: '个人简历'
