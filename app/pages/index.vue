@@ -1,11 +1,29 @@
 <template>
-  <div class="bg-[#0a0f1e] min-h-screen">
-    <CommonSectionTitle title="Projects" />
+  <div class="bg-gray-900">
+    <HeroSection />
 
-    <WorkList />
+    <div id="skills" class="container mx-auto">
+      <CommonSectionTitle title="Skills" />
 
-    <CommonSectionTitle title="Education" />
+      <SkillsSection />
+    </div>
 
-    <Education />
+    <div id="experience" class="container mx-auto">
+      <CommonSectionTitle title="Experience" />
+
+      <ExperienceSection />
+    </div>
+
+    <div id="project" class="container mx-auto">
+      <CommonSectionTitle title="Projects" />
+
+      <ProjectsSection />
+    </div>
   </div>
 </template>
+
+<script setup>
+definePageMeta({
+  layout: 'fullwidth'
+})
+</script>

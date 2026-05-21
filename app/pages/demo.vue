@@ -9,5 +9,7 @@
         { label: '移动端预览', url: 'https://xxx.com' }
       ]"
     />
+
+    <AiDemo3 />
   </div>
 </template>
