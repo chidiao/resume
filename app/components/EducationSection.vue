@@ -8,10 +8,14 @@
           <div
             class="w-24 h-24 shrink-0 rounded-full overflow-hidden border-2 border-cyan-400/40 shadow-md shadow-cyan-400/10"
           >
-            <img
+            <NuxtImg
               src="/img/hncjxy.png"
               alt="河南城建学院校徽"
               class="w-full h-full object-cover"
+              width="96"
+              height="96"
+              loading="lazy"
+              format="webp"
             />
           </div>
 

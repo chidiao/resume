@@ -3,7 +3,7 @@
     <div class="w-full grid gap-5 py-5 md:grid-cols-2 md:items-center">
       <WorkDescription title="微信小程序" :experienceList="experienceList" :tags="tags" />
 
-      <img src="/img/mini-marsx.jpg" class="w-full h-auto sm:w-1/2 mx-auto max-w-[200px]" />
+      <NuxtImg src="/img/mini-marsx.jpg" class="w-full h-auto sm:w-1/2 mx-auto max-w-[200px]" width="200" loading="lazy" format="webp" />
     </div>
   </WorkAppGallery>
 </template>

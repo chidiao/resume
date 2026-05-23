@@ -15,7 +15,7 @@
             class="w-full"
           >
             <SwiperSlide v-for="(slide, index) in pcSlides" :key="index">
-              <img :src="slide" />
+              <NuxtImg :src="slide" sizes="sm:100vw md:100vw lg:800px" loading="lazy" format="webp" />
             </SwiperSlide>
           </Swiper>
         </WorkPreviewPc>
@@ -30,7 +30,7 @@
             class="w-full"
           >
             <SwiperSlide v-for="(slide, index) in mbSlides" :key="index">
-              <img :src="slide" />
+              <NuxtImg :src="slide" width="240" loading="lazy" format="webp" />
             </SwiperSlide>
           </Swiper>
         </WorkPreviewMb>

@@ -10,7 +10,7 @@
           class="flex-shrink-0 w-[62vw] md:flex-1 md:min-w-0 snap-center rounded-xl overflow-hidden transition-all duration-400 ease-out md:hover:scale-105"
           :class="idx % 2 === 0 ? 'md:-translate-y-5 lg:-translate-y-8' : 'md:translate-y-5 lg:translate-y-8'"
         >
-          <img :src="img.src" alt="App截图" class="w-full h-auto rounded-xl" />
+          <NuxtImg :src="img.src" alt="App截图" class="w-full h-auto rounded-xl" sizes="sm:60vw md:30vw lg:250px" loading="lazy" format="webp" />
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
           class="rounded-full p-0.5 transition-all duration-300"
           :class="activeIndex === idx ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-900' : ''"
         >
-          <img :src="item.logo" :alt="item.name" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover" />
+          <NuxtImg :src="item.logo" :alt="item.name" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover" width="48" height="48" loading="lazy" format="webp" />
         </div>
         <span
           class="text-xs md:text-sm font-medium transition-colors duration-300"

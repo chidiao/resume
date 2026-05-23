@@ -2,10 +2,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
   ssr: true,
-  routeRules: {
-    '/**': { ssr: false }
-  },
-  modules: ['@unocss/nuxt'],
+  modules: ['@unocss/nuxt', '@nuxt/image'],
   vite: {
     optimizeDeps: {
       include: [
@@ -13,6 +10,11 @@ export default defineNuxtConfig({
         'swiper/vue',
       ]
     }
+  },
+  image: {
+    format: ['webp'],
+    quality: 80,
+    densities: [1, 2],
   },
   app: {
     head: {
