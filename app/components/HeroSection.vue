@@ -44,8 +44,9 @@
           </a>
           <a
             href="/孙颖洲2026.pdf"
-            download
+            download="孙颖洲2026简历.pdf"
             class="rounded-full border border-gray-600 px-8 py-3 font-medium transition-all hover:border-gray-400 hover:bg-white/10"
+            @click.prevent="downloadResume"
           >
             下载简历 PDF
           </a>
@@ -98,4 +99,17 @@ const gridStyle = computed(() => ({
   backgroundSize: '50px 50px',
   backgroundPosition: 'center center'
 }))
+
+async function downloadResume() {
+  const response = await fetch('/孙颖洲2026.pdf')
+  const blob = await response.blob()
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = '孙颖洲2026简历.pdf'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}
 </script>
