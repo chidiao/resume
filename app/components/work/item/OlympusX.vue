@@ -10,7 +10,7 @@
 
     <div class="max-w-6xl mx-auto px-6 md:px-12 py-8">
       <WorkAppGallery v-model:activeIndex="activeIndex" :appList="appList">
-    <WorkDescription title="游戏社区H5" :experienceList="experienceList" :tags="tags">
+    <WorkDescription :experienceList="experienceList">
       <WorkPreviewLinks title="前往各应用商店体验：" :linkList="links" />
     </WorkDescription>
   </WorkAppGallery>

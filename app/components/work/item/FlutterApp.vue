@@ -9,7 +9,9 @@
     />
 
     <div class="max-w-6xl mx-auto px-6 md:px-12 py-8">
-      <WorkDescription class="max-w-[500px]" title="Flutter App 开发" :experienceList="experienceList" :tags="tags" />
+      <WorkDescription class="max-w-[500px]" :experienceList="experienceList">
+        <WorkPreviewLinks title="其他版本预览：" :linkList="links" />
+      </WorkDescription>
     </div>
   </div>
 </template>
@@ -24,4 +26,9 @@ const experienceList = [
 ]
 
 const tags = ['Flutter', 'Dart', 'GetX', 'AI 辅助开发', '流式数据', '阿里云语音转文字']
+
+const links = [
+  { label: 'Rustar', url: 'https://wap.rustar.cc/app/#/home' },
+  { label: '小鸡模拟器', url: 'https://play.google.com/store/apps/details?id=org.xiaoji001.app' },
+]
 </script>

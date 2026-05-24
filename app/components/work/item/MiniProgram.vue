@@ -11,7 +11,7 @@
     <div class="max-w-6xl mx-auto px-6 md:px-12 py-8">
       <WorkAppGallery v-model:activeIndex="activeIndex" :appList="appList">
     <div class="w-full grid gap-5 py-5 md:grid-cols-2 md:items-center">
-      <WorkDescription title="微信小程序" :experienceList="experienceList" :tags="tags" />
+      <WorkDescription :experienceList="experienceList" />
 
       <NuxtImg src="/img/mini-marsx.jpg" class="w-full h-auto sm:w-1/2 mx-auto max-w-[200px]" width="200" loading="lazy" format="webp" />
     </div>

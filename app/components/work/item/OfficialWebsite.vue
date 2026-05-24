@@ -49,9 +49,7 @@
 
     <div class="max-w-[500px]">
       <WorkDescription
-        title="企业响应式官网"
         :experienceList="experienceList"
-        :tags="tags"
       >
         <WorkPreviewLinks title="在线预览：" :linkList="links" />
       </WorkDescription>
