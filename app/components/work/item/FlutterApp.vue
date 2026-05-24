@@ -1,6 +1,16 @@
 <template>
   <div class="w-full">
-    <WorkDescription class="max-w-[500px]" title="Flutter App 开发" :experienceList="experienceList" :tags="tags" />
+    <CommonSectionHero
+      label="Flutter · 移动端开发"
+      title-prefix="Flutter /"
+      title-highlight="App"
+      description="参与 Flutter 商业项目实践，快速掌握 Dart 语法与跨端组件化思想，借助 AI 辅助开发高效完成业务迭代。"
+      :tags="tags"
+    />
+
+    <div class="max-w-6xl mx-auto px-6 md:px-12 py-8">
+      <WorkDescription class="max-w-[500px]" title="Flutter App 开发" :experienceList="experienceList" :tags="tags" />
+    </div>
   </div>
 </template>
 

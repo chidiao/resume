@@ -14,13 +14,13 @@
       <ExperienceSection />
     </div>
 
-    <div id="projects" class="container mx-auto">
-      <CommonSectionTitle title="Projects" />
+    <div id="projects">
+      <div class="container mx-auto">
+        <CommonSectionTitle title="Projects" />
+      </div>
 
       <ProjectsSection />
     </div>
-
-    <WorkItemDApp />
   </div>
 </template>
 

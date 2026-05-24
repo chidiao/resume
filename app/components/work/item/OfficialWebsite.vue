@@ -1,7 +1,17 @@
 <template>
-  <div
-    class="w-full min-h-screen grid gap-8 lg:gap-16 xl:gap-24 md:grid-cols-2 md:items-center py-5 md:py-16"
-  >
+  <div>
+    <CommonSectionHero
+      label="官网开发 · 企业建站"
+      title-prefix="Official /"
+      title-highlight="Website"
+      description="拥有丰富企业官网开发经验，基于 Vue、Nuxt 进行项目搭建，掌握 SPA、SSR、SSG 多种渲染模式，精准适配全尺寸屏幕布局。"
+      :tags="tags"
+    />
+
+    <div class="max-w-6xl mx-auto px-6 md:px-12 py-8">
+      <div
+        class="w-full grid gap-8 lg:gap-16 xl:gap-24 md:grid-cols-2 md:items-center py-5 md:py-16"
+      >
     <div class="relative w-full h-auto aspect-square">
       <div
         class="absolute top-1/2 -translate-y-1/2 w-full overflow-hidden z-10 left-0"
@@ -45,6 +55,8 @@
       >
         <WorkPreviewLinks title="在线预览：" :linkList="links" />
       </WorkDescription>
+    </div>
+  </div>
     </div>
   </div>
 </template>

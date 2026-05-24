@@ -77,25 +77,44 @@ const mobileExperiences = timelineItems.filter((item) => item.type === 'exp').ma
   <section class="py-5 text-gray-200 font-mono">
     <div class="max-w-4xl mx-auto px-6">
       <!-- mb -->
-      <div class="space-y-6 lg:hidden">
-        <div v-for="(exp, index) in mobileExperiences" :key="index">
-          <div class="mb-3 flex items-center gap-3">
-            <span class="text-cyan-400 text-base bg-cyan-400/10 px-3 py-1 rounded-full">
-              {{ exp.period }}
-            </span>
+      <div class="space-y-0 lg:hidden">
+        <div
+          v-for="(exp, index) in mobileExperiences"
+          :key="index"
+          class="relative pl-8"
+        >
+          <!-- 移动端连接线 -->
+          <div class="absolute left-[0.375rem] top-0 bottom-0 flex flex-col items-center">
+            <!-- 圆点 -->
+            <div
+              class="w-3 h-3 rounded-full bg-[#00e5ff] shadow-[0_0_8px_rgba(0,229,255,0.5)] shrink-0 mt-6"
+            />
+            <!-- 连线（最后一项无） -->
+            <div
+              v-if="index < mobileExperiences.length - 1"
+              class="w-px flex-1 bg-gradient-to-b from-[#00e5ff]/30 to-transparent mt-2"
+            />
           </div>
 
+          <!-- 卡片 -->
           <div
-            class="bg-[#131b2d] border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/50 transition-all shadow-lg shadow-cyan-400/5"
+            class="bg-[#131b2d] border border-[#00e5ff]/10 rounded-xl p-6 hover:border-[#00e5ff]/30 hover:shadow-[0_0_30px_rgba(0,229,255,0.08)] transition-all duration-300 cursor-pointer group"
           >
-            <div class="mb-3">
-              <h3 class="text-xl font-bold text-white">{{ exp.company }}</h3>
-              <p class="text-gray-400 text-sm">{{ exp.role }}</p>
+            <!-- 时间段 -->
+            <span class="inline-block text-xs text-[#00e5ff] bg-[#00e5ff]/5 px-3 py-1 rounded-full mb-3 border border-[#00e5ff]/10">
+              {{ exp.period }}
+            </span>
+
+            <div class="mb-4">
+              <h3 class="text-xl font-bold text-white group-hover:text-[#00e5ff] transition-colors duration-200">
+                {{ exp.company }}
+              </h3>
+              <p class="text-gray-400 text-sm mt-0.5">{{ exp.role }}</p>
             </div>
 
-            <div class="space-y-2 text-gray-300 text-sm">
-              <div v-for="(desc, dIndex) in exp.descriptions" :key="dIndex" class="flex items-start gap-2">
-                <span class="text-cyan-400 shrink-0">●</span>
+            <div class="space-y-3 text-gray-300 text-sm leading-relaxed">
+              <div v-for="(desc, dIndex) in exp.descriptions" :key="dIndex" class="flex items-start gap-3">
+                <span class="mt-[0.35rem] block w-1.5 h-1.5 rounded-full bg-[#00e5ff]/60 shrink-0" />
                 <p>{{ desc }}</p>
               </div>
             </div>
@@ -110,7 +129,10 @@ const mobileExperiences = timelineItems.filter((item) => item.type === 'exp').ma
           <div class="w-[140px] shrink-0 relative">
             <template v-if="item.type === 'year'">
               <div class="absolute inset-0 flex items-center justify-end pointer-events-none">
-                <span class="text-[5.5rem] italic font-black text-white/50 leading-none select-none mr-3">
+                <span
+                  class="text-[5.5rem] italic font-black text-white/[0.07] leading-none select-none tracking-[-0.03em]"
+                  style="text-shadow: 0 0 60px rgba(0, 229, 255, 0.15)"
+                >
                   {{ item.value }}
                 </span>
               </div>
@@ -121,37 +143,46 @@ const mobileExperiences = timelineItems.filter((item) => item.type === 'exp').ma
           <div class="relative flex flex-col items-center w-[30px] shrink-0">
             <template v-if="item.type === 'year'">
               <!-- 圆点 -->
-              <div class="w-3 h-3 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/30 shrink-0 mt-3" />
+              <div
+                class="w-3.5 h-3.5 rounded-full bg-[#00e5ff] shadow-[0_0_12px_rgba(0,229,255,0.6)] shrink-0 mt-3 ring-2 ring-[#00e5ff]/20"
+              />
               <!-- 竖线（最后一项无） -->
-              <div v-if="index < timelineItems.length - 1" class="w-px flex-1 bg-cyan-500/20" />
+              <div
+                v-if="index < timelineItems.length - 1"
+                class="w-px flex-1 bg-gradient-to-b from-[#00e5ff]/25 via-[#00e5ff]/10 to-transparent"
+              />
             </template>
             <template v-else>
               <!-- 经验行：竖线贯穿整行 -->
-              <div class="w-px flex-1 bg-cyan-500/20" />
+              <div class="w-px flex-1 bg-gradient-to-b from-[#00e5ff]/15 to-[#00e5ff]/5" />
             </template>
           </div>
 
           <!-- 右侧内容列 -->
-          <div class="flex-1 pl-6" :class="index < timelineItems.length - 1 ? 'pb-10' : ''">
+          <div class="flex-1 pl-8" :class="index < timelineItems.length - 1 ? 'pb-12' : ''">
             <template v-if="item.type === 'exp' && item.exp">
               <div
-                class="bg-[#131b2d] border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/50 transition-all shadow-lg shadow-cyan-400/5"
+                class="bg-[#131b2d] border border-[#00e5ff]/10 rounded-xl p-6 hover:border-[#00e5ff]/30 hover:shadow-[0_0_40px_rgba(0,229,255,0.1)] transition-all duration-300 cursor-pointer group"
               >
                 <!-- 公司信息行 -->
                 <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div>
-                    <h3 class="text-xl font-bold text-white">{{ item.exp.company }}</h3>
-                    <p class="text-gray-400 text-sm">{{ item.exp.role }}</p>
+                    <h3 class="text-xl font-bold text-white group-hover:text-[#00e5ff] transition-colors duration-200">
+                      {{ item.exp.company }}
+                    </h3>
+                    <p class="text-gray-400 text-sm mt-0.5">{{ item.exp.role }}</p>
                   </div>
-                  <span class="text-cyan-400 text-sm bg-cyan-400/10 px-3 py-1 rounded-full shrink-0">
+                  <span
+                    class="text-xs text-[#00e5ff] bg-[#00e5ff]/5 px-3 py-1 rounded-full shrink-0 border border-[#00e5ff]/10"
+                  >
                     {{ item.exp.period }}
                   </span>
                 </div>
 
                 <!-- 描述列表 -->
-                <div class="space-y-2.5 text-gray-300 text-sm">
-                  <div v-for="(desc, dIndex) in item.exp.descriptions" :key="dIndex" class="flex items-start gap-2">
-                    <span class="text-cyan-400 shrink-0">●</span>
+                <div class="space-y-3 text-gray-300 text-sm leading-relaxed">
+                  <div v-for="(desc, dIndex) in item.exp.descriptions" :key="dIndex" class="flex items-start gap-3">
+                    <span class="mt-[0.35rem] block w-1.5 h-1.5 rounded-full bg-[#00e5ff]/60 shrink-0" />
                     <p>{{ desc }}</p>
                   </div>
                 </div>

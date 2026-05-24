@@ -1,9 +1,21 @@
 <template>
-  <WorkAppGallery v-model:activeIndex="activeIndex" :appList="appList">
+  <div>
+    <CommonSectionHero
+      label="H5 开发 · 游戏社区"
+      title-prefix="Gaming /"
+      title-highlight="H5"
+      description="负责游戏社区纯 H5 应用前端开发，接入腾讯 IM 即时通讯与阿里云语音服务，实现动态社交与 AI 聊天交互。"
+      :tags="tags"
+    />
+
+    <div class="max-w-6xl mx-auto px-6 md:px-12 py-8">
+      <WorkAppGallery v-model:activeIndex="activeIndex" :appList="appList">
     <WorkDescription title="游戏社区H5" :experienceList="experienceList" :tags="tags">
       <WorkPreviewLinks title="前往各应用商店体验：" :linkList="links" />
     </WorkDescription>
   </WorkAppGallery>
+    </div>
+  </div>
 </template>
 
 <script setup>
