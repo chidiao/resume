@@ -18,7 +18,13 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: '个人简历'
+      title: '个人简历',
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap'
+        }
+      ]
     }
   }
 })

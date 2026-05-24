@@ -19,6 +19,8 @@
 
       <ProjectsSection />
     </div>
+
+    <WorkItemDApp />
   </div>
 </template>
 
