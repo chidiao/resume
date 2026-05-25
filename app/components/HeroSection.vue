@@ -4,9 +4,10 @@
 
     <!-- 内容层 -->
     <div
-      class="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-start justify-center px-6 py-12 md:px-12"
+      class="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-center gap-8 px-6 py-12 md:flex-row md:items-center md:gap-8 md:px-12"
     >
-      <div class="w-full max-w-3xl">
+      <!-- 左侧文字内容 -->
+      <div class="w-full max-w-xl flex-shrink-0">
         <!-- 状态徽章 -->
         <div
           class="mb-6 inline-flex items-center rounded-full border border-gray-700 bg-gray-800/50 px-3 py-1 text-sm backdrop-blur-sm"
@@ -84,9 +85,12 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- <HeroImage /> -->
+      <!-- 右侧视觉元素（桌面端可见） -->
+      <div class="hidden w-full flex-1 md:block">
+        <HeroVisual />
+      </div>
+    </div>
   </section>
 </template>
 

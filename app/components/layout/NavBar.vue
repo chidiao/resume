@@ -2,13 +2,14 @@
 interface NavItem {
   label: string
   href: string
+  icon: string
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' }
+  { label: 'Home', href: '#home', icon: 'i-fa-solid-home' },
+  { label: 'Skills', href: '#skills', icon: 'i-fa-solid-code' },
+  { label: 'Experience', href: '#experience', icon: 'i-fa-solid-briefcase' },
+  { label: 'Projects', href: '#projects', icon: 'i-fa-solid-rocket' }
 ]
 
 const isMenuOpen = ref(false)
@@ -101,9 +102,10 @@ onUnmounted(() => {
         <li v-for="item in navItems" :key="item.label">
           <a
             :href="item.href"
-            class="text-sm tracking-wider transition-colors"
+            class="flex items-center gap-1.5 text-sm tracking-wider transition-colors"
             :class="activeSection === item.href ? 'text-[#00e5ff]' : 'text-gray-300 hover:text-[#00e5ff]'"
           >
+            <span :class="item.icon" class="w-4 h-4" />
             {{ item.label }}
           </a>
         </li>
@@ -130,10 +132,11 @@ onUnmounted(() => {
           v-for="item in navItems"
           :key="item.label"
           :href="item.href"
-          class="text-lg tracking-wider transition-colors"
+          class="flex items-center gap-2 text-lg tracking-wider transition-colors"
           :class="activeSection === item.href ? 'text-[#00e5ff]' : 'text-gray-300 hover:text-[#00e5ff]'"
           @click="closeMenu"
         >
+          <span :class="item.icon" class="w-5 h-5" />
           {{ item.label }}
         </a>
       </div>

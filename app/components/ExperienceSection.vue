@@ -77,7 +77,7 @@ const mobileExperiences = timelineItems.filter((item) => item.type === 'exp').ma
   <section class="py-5 text-gray-200 font-mono">
     <div class="max-w-4xl mx-auto px-6">
       <!-- mb -->
-      <div class="space-y-0 lg:hidden">
+      <div class="space-y-6 lg:hidden">
         <div
           v-for="(exp, index) in mobileExperiences"
           :key="index"
@@ -126,11 +126,11 @@ const mobileExperiences = timelineItems.filter((item) => item.type === 'exp').ma
       <div class="hidden lg:block">
         <div v-for="(item, index) in timelineItems" :key="index" class="flex">
           <!-- 左侧年份列 -->
-          <div class="w-[140px] shrink-0 relative">
+          <div class="w-[220px] shrink-0 relative">
             <template v-if="item.type === 'year'">
               <div class="absolute inset-0 flex items-center justify-end pointer-events-none">
                 <span
-                  class="text-[5.5rem] italic font-black text-white/[0.07] leading-none select-none tracking-[-0.03em]"
+                  class="text-[5rem] font-orbitron italic font-bold text-white/[0.07] leading-none select-none tracking-[-0.03em]"
                   style="text-shadow: 0 0 60px rgba(0, 229, 255, 0.15)"
                 >
                   {{ item.value }}

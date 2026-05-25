@@ -11,5 +11,7 @@
     />
 
     <AiDemo3 />
+
+    <LayoutFooter />
   </div>
 </template>
