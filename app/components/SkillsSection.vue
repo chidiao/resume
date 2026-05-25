@@ -1,10 +1,16 @@
 <template>
-  <section class="py-24 relative overflow-hidden bg-gray-900">
+  <section class="py-24 relative overflow-hidden">
+    <!-- 顶部渐变过渡：从页面背景淡入 -->
+    <div class="absolute top-0 left-0 right-0 h-32 z-0 bg-gradient-to-b from-[#0F172A] to-transparent"></div>
+
+    <!-- 底部渐变过渡：淡出到页面背景 -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 z-0 bg-gradient-to-t from-[#0F172A] to-transparent"></div>
+
     <!-- 网格背景 -->
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_70%)]"></div>
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-      <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08),transparent_70%)]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
     </div>
 
     <div class="container mx-auto px-6 relative z-10">

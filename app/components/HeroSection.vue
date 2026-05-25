@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="relative min-h-screen overflow-hidden bg-gray-900 font-sans text-white">
+  <section id="home" class="relative min-h-screen overflow-hidden bg-[#0F172A] font-sans text-white">
     <div class="absolute inset-0 z-0" :style="gridStyle"></div>
 
     <!-- 内容层 -->
