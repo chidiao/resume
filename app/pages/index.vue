@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#0F172A]">
-    <HeroSection />
+    <HeroCodingSection />
 
     <!-- 过渡：Hero → Skills -->
     <div class="relative h-16 -mt-16 z-10 pointer-events-none">
