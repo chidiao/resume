@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-const tags = ['Flutter', 'Dart', 'GetX', 'AI Chat', '流式数据', '阿里云语音转文字', '协作开发']
+const tags = ['Flutter', 'Dart', 'GetX', 'AI 聊天', '流式数据', '阿里云语音转文字', '协作开发']
 
 const stats = [
   { icon: 'i-fa-solid-mobile-alt', value: '2 个', label: 'Flutter 项目' },
@@ -21,22 +21,22 @@ const stats = [
 const modules = [
   {
     icon: 'i-fa-solid-code',
-    title: 'Rustar App',
+    title: 'Rustar 应用',
     text: '参与 Flutter 版本开发约 2 个多月，主要负责页面 UI、接口渲染与基础业务逻辑。'
   },
   {
     icon: 'i-fa-solid-comments',
-    title: 'MarsXAI Early Stage',
+    title: 'MarsXAI 早期阶段',
     text: 'MarsXAI 前期使用 Flutter 开发，也是开始搭配 AI 辅助开发的阶段。'
   },
   {
     icon: 'i-fa-solid-microphone-alt',
-    title: 'AI & Voice',
+    title: 'AI 与语音能力',
     text: '参与 AI 聊天流式数据渲染，以及阿里云语音转文字和聊天联动能力。'
   },
   {
     icon: 'i-fa-solid-project-diagram',
-    title: 'Refactor Context',
+    title: '后续重构背景',
     text: '后续项目重构为 H5，并演进为游戏社区类 Flutter 套壳 H5 形态。'
   }
 ]

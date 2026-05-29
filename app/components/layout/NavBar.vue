@@ -6,15 +6,15 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', href: '#home', icon: 'i-fa-solid-home' },
-  { label: 'Skills', href: '#skills', icon: 'i-fa-solid-code' },
-  { label: 'Experience', href: '#experience', icon: 'i-fa-solid-briefcase' },
-  { label: 'Projects', href: '#projects', icon: 'i-fa-solid-rocket' }
+  { label: '首页', href: '#home', icon: 'i-fa-solid-home' },
+  { label: '技能', href: '#skills', icon: 'i-fa-solid-code' },
+  { label: '经历', href: '#experience', icon: 'i-fa-solid-briefcase' },
+  { label: '项目', href: '#projects', icon: 'i-fa-solid-rocket' }
 ]
 
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
-const activeSection = ref('')
+const activeSection = ref(navItems[0].href)
 
 const navListRef = ref<HTMLUListElement | null>(null)
 const indicatorStyle = ref({ left: '0px', width: '0px' })
@@ -30,8 +30,7 @@ const closeMenu = () => {
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 10
 
-  // Scroll spy：基于 section 顶部距离计算当前激活项
-  const scrollTop = window.scrollY + 100 // 偏移量，补偿 navbar 高度
+  const scrollTop = window.scrollY + 140
   let currentSection = navItems[0].href
 
   for (let i = navItems.length - 1; i >= 0; i--) {
@@ -48,19 +47,18 @@ const handleScroll = () => {
   }
 }
 
-// 更新底部指示条位置和宽度
 const updateIndicator = () => {
   if (!navListRef.value) return
 
   const activeLink = navListRef.value.querySelector(`a[href="${activeSection.value}"]`) as HTMLElement | null
+  if (!activeLink) return
 
-  if (activeLink) {
-    const parentRect = navListRef.value.getBoundingClientRect()
-    const linkRect = activeLink.getBoundingClientRect()
-    indicatorStyle.value = {
-      left: `${linkRect.left - parentRect.left}px`,
-      width: `${linkRect.width}px`
-    }
+  const parentRect = navListRef.value.getBoundingClientRect()
+  const linkRect = activeLink.getBoundingClientRect()
+
+  indicatorStyle.value = {
+    left: `${linkRect.left - parentRect.left}px`,
+    width: `${linkRect.width}px`
   }
 }
 
@@ -69,8 +67,9 @@ watch(activeSection, () => {
 })
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  handleScroll() // 初始调用，防止刷新后 active 缺失
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
+  nextTick(updateIndicator)
 })
 
 onUnmounted(() => {
@@ -79,64 +78,76 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav
-    class="flex fixed top-0 left-0 z-50 w-full h-16 transition-all duration-300"
-    :class="
-      isScrolled
-        ? 'translate-y-0 opacity-100 bg-[#0a0f1e]/90 backdrop-blur-sm shadow-lg'
-        : '-translate-y-full opacity-0'
-    "
-  >
-    <div class="flex justify-between items-center mx-auto px-6 w-full container">
-      <!-- Logo / Brand -->
+  <nav class="pointer-events-none fixed left-0 right-0 top-4 z-50 px-4 sm:px-6" aria-label="主导航">
+    <div
+      class="pointer-events-auto mx-auto flex h-14 w-full max-w-6xl items-center justify-between rounded-2xl border px-3 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl transition-all duration-300 sm:h-16 sm:px-4"
+      :class="isScrolled ? 'border-cyan-300/18 bg-[#07111f]/86' : 'border-white/10 bg-[#07111f]/62'"
+    >
       <a
         href="#home"
-        class="text-xl font-bold text-white tracking-wide hover:text-[#00e5ff] transition-colors"
+        class="group flex min-w-0 cursor-pointer items-center gap-3 rounded-xl px-2 py-1.5 outline-none transition-colors duration-200 hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-cyan-300/70"
         @click="closeMenu"
       >
-        Resume
+        <span
+          class="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-cyan-300/20 bg-cyan-300/8 text-cyan-200 shadow-[0_0_24px_rgba(34,211,238,0.12)] transition-colors duration-200 group-hover:border-cyan-300/45"
+        >
+          <span class="i-fa-solid-terminal h-4 w-4" />
+        </span>
+        <span class="hidden min-w-0 leading-none sm:block">
+          <span class="block text-sm font-semibold tracking-[0.16em] text-white">孙颖洲</span>
+          <span class="mt-1 block text-[10px] tracking-[0.18em] text-slate-400">前端工程师</span>
+        </span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <ul ref="navListRef" class="hidden md:flex relative gap-8 items-center pb-3">
-        <li v-for="item in navItems" :key="item.label">
+      <ul
+        ref="navListRef"
+        class="relative hidden items-center gap-1 rounded-2xl border border-white/8 bg-black/18 p-1 md:flex"
+      >
+        <li v-for="item in navItems" :key="item.label" class="relative z-10">
           <a
             :href="item.href"
-            class="flex items-center gap-1.5 text-sm tracking-wider transition-colors"
-            :class="activeSection === item.href ? 'text-[#00e5ff]' : 'text-gray-300 hover:text-[#00e5ff]'"
+            class="flex h-10 cursor-pointer items-center gap-2 rounded-xl px-4 text-sm font-medium outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+            :class="activeSection === item.href ? 'text-cyan-100' : 'text-slate-400 hover:text-white'"
           >
-            <span :class="item.icon" class="w-4 h-4" />
+            <span :class="item.icon" class="h-3.5 w-3.5" />
             {{ item.label }}
           </a>
         </li>
-        <!-- 滑动底部指示条 -->
         <div
-          class="absolute bottom-0 h-0.5 bg-[#00e5ff] rounded transition-all duration-300"
+          class="absolute bottom-1 top-1 rounded-xl border border-cyan-300/22 bg-cyan-300/10 shadow-[0_0_24px_rgba(34,211,238,0.16)] transition-all duration-300 ease-out"
           :style="{ left: indicatorStyle.left, width: indicatorStyle.width }"
+          aria-hidden="true"
         />
       </ul>
 
-      <!-- Mobile Toggle -->
+      <div class="hidden items-center gap-2 lg:flex">
+        <span class="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.8)]" />
+        <span class="text-xs font-medium tracking-[0.16em] text-slate-400">2026 简历</span>
+      </div>
+
       <div class="flex md:hidden">
         <CommonHamburgerToggle :is-open="isMenuOpen" @toggle="toggleMenu" />
       </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
     <Transition name="slide">
       <div
         v-if="isMenuOpen"
-        class="flex fixed top-16 left-0 flex-col gap-6 px-6 py-8 w-full backdrop-blur-sm bg-[#0a0f1e]/95 md:hidden"
+        class="pointer-events-auto mx-auto mt-3 grid w-full max-w-6xl grid-cols-2 gap-2 rounded-2xl border border-cyan-300/16 bg-[#07111f]/94 p-3 shadow-[0_18px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl md:hidden"
       >
         <a
           v-for="item in navItems"
           :key="item.label"
           :href="item.href"
-          class="flex items-center gap-2 text-lg tracking-wider transition-colors"
-          :class="activeSection === item.href ? 'text-[#00e5ff]' : 'text-gray-300 hover:text-[#00e5ff]'"
+          class="flex h-12 cursor-pointer items-center justify-center gap-2 rounded-xl border text-sm font-medium outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+          :class="
+            activeSection === item.href
+              ? 'border-cyan-300/28 bg-cyan-300/12 text-cyan-100'
+              : 'border-white/8 bg-white/[0.03] text-slate-300 hover:border-cyan-300/24 hover:text-white'
+          "
           @click="closeMenu"
         >
-          <span :class="item.icon" class="w-5 h-5" />
+          <span :class="item.icon" class="h-4 w-4" />
           {{ item.label }}
         </a>
       </div>
@@ -147,11 +158,14 @@ onUnmounted(() => {
 <style scoped>
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 0.3s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
+
 .slide-enter-from,
 .slide-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 </style>
