@@ -9,11 +9,7 @@
 
     <SkillsMatrixSection />
 
-    <div id="experience" class="container mx-auto">
-      <CommonSectionTitle title="Experience" />
-
-      <ExperienceSection />
-    </div>
+    <ExperienceCareerSection />
 
     <!-- 过渡：Experience → Projects -->
     <div class="relative h-20 z-10 pointer-events-none">
