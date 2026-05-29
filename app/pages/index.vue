@@ -16,13 +16,7 @@
       <div class="absolute inset-0 bg-gradient-to-b from-[#0F172A] via-[#0F172A] to-transparent"></div>
     </div>
 
-    <div id="projects">
-      <div class="container mx-auto">
-        <CommonSectionTitle title="Projects" />
-      </div>
-
-      <ProjectsSection />
-    </div>
+    <ProjectsShowcaseSection />
   </div>
 </template>
 
