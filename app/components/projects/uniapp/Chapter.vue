@@ -1,5 +1,5 @@
 <template>
-  <section class="flex min-h-dvh scroll-mt-16 items-center px-5 py-20 md:px-10 lg:h-dvh lg:px-14 lg:py-16">
+  <section class="scroll-mt-24 px-5 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
     <div
       class="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[minmax(360px,0.82fr)_minmax(620px,1.18fr)] lg:gap-16 xl:gap-24"
     >
