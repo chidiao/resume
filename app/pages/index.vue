@@ -7,11 +7,7 @@
       <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0F172A]"></div>
     </div>
 
-    <div id="skills" class="container mx-auto">
-      <CommonSectionTitle title="Skills" />
-
-      <SkillsSection />
-    </div>
+    <SkillsMatrixSection />
 
     <div id="experience" class="container mx-auto">
       <CommonSectionTitle title="Experience" />
