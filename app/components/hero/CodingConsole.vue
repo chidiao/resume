@@ -1,7 +1,7 @@
 <template>
   <div class="relative mx-auto w-full max-w-[620px]">
-    <div class="absolute -left-5 top-12 h-24 w-24 rounded-full border border-emerald-400/20"></div>
-    <div class="absolute -right-4 bottom-8 h-32 w-32 rounded-full border border-blue-400/20"></div>
+    <div class="console-orbit console-orbit-a absolute -left-5 top-12 h-24 w-24 rounded-full border border-emerald-400/20"></div>
+    <div class="console-orbit console-orbit-b absolute -right-4 bottom-8 h-32 w-32 rounded-full border border-blue-400/20"></div>
 
     <div
       class="relative overflow-hidden rounded-2xl border border-slate-700 bg-[#0B1120]/95 shadow-2xl shadow-black/40 backdrop-blur"
@@ -49,10 +49,7 @@
     <div
       class="absolute -bottom-5 left-5 right-5 rounded-xl border border-emerald-400/25 bg-slate-950 px-4 py-3 shadow-xl shadow-black/30"
     >
-      <div class="flex items-center gap-3 font-mono text-sm text-emerald-200">
-        <span class="text-emerald-400">$</span>
-        <span>pnpm create product-experience --engineer sunyingzhou</span>
-      </div>
+      <HeroCodingTypewriter />
     </div>
   </div>
 </template>
@@ -67,3 +64,35 @@ const projectTypes = [
   { label: '管理后台', dot: 'bg-rose-400' }
 ]
 </script>
+
+<style scoped>
+.console-orbit {
+  transform-origin: center;
+  animation: console-orbit-pulse 7.8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.console-orbit-b {
+  animation-duration: 9.6s;
+  animation-delay: -2.4s;
+}
+
+@keyframes console-orbit-pulse {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .console-orbit {
+    animation: none;
+  }
+}
+</style>

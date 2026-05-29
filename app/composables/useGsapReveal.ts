@@ -88,10 +88,14 @@ export const useGsapReveal = (root: Ref<HTMLElement | null>, options: RevealOpti
         )
       })
 
+      const playTimeline = () => {
+        timeline.restart()
+      }
+
       $ScrollTrigger.create({
         trigger: el,
-        start: options.start ?? 'top 78%',
-        onEnter: () => timeline.restart(),
+        start: options.start ?? 'top 64%',
+        onEnter: playTimeline,
         onLeaveBack: () => {
           timeline.pause(0)
           initialStates.forEach(({ item, vars }) => {

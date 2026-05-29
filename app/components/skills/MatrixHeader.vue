@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-3xl text-center">
+  <div data-gsap-reveal="fade-up" class="mx-auto max-w-3xl text-center">
     <p class="font-mono text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300 md:text-sm">skills.matrix</p>
     <h2 class="mt-3 text-[clamp(2rem,5vw,5.5rem)] font-black leading-none tracking-normal text-white md:mt-5">
       技术栈矩阵

@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-3xl">
-    <p class="mb-4 font-mono text-sm font-semibold text-emerald-300">SUN YINGZHOU</p>
-    <h1 class="text-[clamp(3.5rem,8vw,7.5rem)] font-black leading-[0.9] tracking-normal text-white">
+    <p data-hero-intro class="mb-4 font-mono text-sm font-semibold text-emerald-300">SUN YINGZHOU</p>
+    <h1 data-hero-intro class="text-[clamp(3.5rem,8vw,7.5rem)] font-black leading-[0.9] tracking-normal text-white">
       <span class="block whitespace-nowrap">孙颖洲</span>
       <span
         class="mt-8 block whitespace-nowrap bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text pb-2 text-[clamp(2.2rem,4.8vw,5rem)] leading-[1.08] text-transparent"
@@ -10,11 +10,11 @@
       </span>
     </h1>
 
-    <p class="mt-8 max-w-xl text-xl font-semibold leading-8 text-slate-200 md:text-2xl md:leading-9">
+    <p data-hero-intro class="mt-8 max-w-xl text-xl font-semibold leading-8 text-slate-200 md:text-2xl md:leading-9">
       6 年前端开发经验，主要技术栈 Vue3 / Nuxt / UniApp
     </p>
 
-    <div class="mt-8 flex flex-wrap gap-2.5">
+    <div data-hero-intro class="mt-8 flex flex-wrap gap-2.5">
       <span
         v-for="skill in skills"
         :key="skill"
@@ -24,7 +24,7 @@
       </span>
     </div>
 
-    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+    <div data-hero-intro class="mt-9 flex flex-col gap-3 sm:flex-row">
       <a
         href="#projects"
         class="inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-lg bg-emerald-500 px-6 font-mono text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/20 transition-colors duration-200 hover:bg-emerald-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
