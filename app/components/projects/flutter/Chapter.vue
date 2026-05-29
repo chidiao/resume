@@ -1,15 +1,19 @@
 <template>
-  <section class="scroll-mt-24 px-5 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+  <section ref="sectionRef" class="scroll-mt-24 px-5 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
     <div
       class="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[minmax(360px,0.82fr)_minmax(620px,1.18fr)] lg:gap-16 xl:gap-24"
     >
-      <ProjectsFlutterInfo :stats="stats" :tags="tags" />
-      <ProjectsFlutterPreview :modules="modules" :links="links" />
+      <ProjectsFlutterInfo data-gsap-reveal="left" :stats="stats" :tags="tags" />
+      <ProjectsFlutterPreview data-gsap-reveal="preview" :modules="modules" :links="links" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+const sectionRef = ref<HTMLElement | null>(null)
+
+useGsapReveal(sectionRef)
+
 const tags = ['Flutter', 'Dart', 'GetX', 'AI 聊天', '流式数据', '阿里云语音转文字', '协作开发']
 
 const stats = [

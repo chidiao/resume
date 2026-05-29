@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="relative h-dvh overflow-hidden bg-[#020617] text-slate-50">
+  <section id="home" ref="sectionRef" class="relative h-dvh overflow-hidden bg-[#020617] text-slate-50">
     <div
       class="absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.055)_1px,transparent_1px)] bg-[size:42px_42px]"
     ></div>
@@ -18,13 +18,82 @@
       href="#skills"
       aria-label="向下滚动"
       class="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 cursor-pointer flex-col items-center gap-2 text-slate-400 transition-colors duration-200 hover:text-emerald-300"
+      @click.prevent="scrollToSkills"
     >
       <span class="relative h-9 w-5 rounded-full border border-current">
         <span
           class="absolute left-1/2 top-2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-current animate-bounce"
         ></span>
       </span>
-      <span class="font-mono text-[11px] uppercase tracking-[0.24em]">scroll</span>
+      <span class="text-[11px] tracking-[0.24em]">下滑</span>
     </a>
   </section>
 </template>
+
+<script setup lang="ts">
+const sectionRef = ref<HTMLElement | null>(null)
+
+let hasSnappedToSkills = false
+let isSnappingToSkills = false
+let ctx: { revert: () => void } | undefined
+
+const scrollToSkills = () => {
+  if (isSnappingToSkills) return
+
+  const target = document.getElementById('skills')
+  if (!target) return
+
+  const { $gsap } = useNuxtApp()
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const scrollState = { y: window.scrollY }
+
+  hasSnappedToSkills = true
+  isSnappingToSkills = true
+
+  if (reduceMotion) {
+    window.scrollTo(0, target.offsetTop)
+    isSnappingToSkills = false
+    return
+  }
+
+  $gsap.to(scrollState, {
+    y: target.offsetTop,
+    duration: 0.86,
+    ease: 'power3.inOut',
+    overwrite: true,
+    onUpdate: () => window.scrollTo(0, scrollState.y),
+    onComplete: () => {
+      isSnappingToSkills = false
+    }
+  })
+}
+
+onMounted(async () => {
+  await nextTick()
+
+  const el = sectionRef.value
+  if (!el) return
+
+  const { $gsap, $ScrollTrigger } = useNuxtApp()
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduceMotion) return
+
+  ctx = $gsap.context(() => {
+    $ScrollTrigger.create({
+      trigger: el,
+      start: 'top top',
+      end: () => `+=${Math.round(window.innerHeight * 0.3)}`,
+      once: true,
+      onLeave: (self) => {
+        if (self.direction > 0 && !hasSnappedToSkills) {
+          scrollToSkills()
+        }
+      }
+    })
+  }, el)
+})
+
+onUnmounted(() => {
+  ctx?.revert()
+})
+</script>

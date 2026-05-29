@@ -1,15 +1,19 @@
 <template>
-  <section class="scroll-mt-24 px-5 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+  <section ref="sectionRef" class="scroll-mt-24 px-5 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
     <div
       class="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[minmax(360px,0.82fr)_minmax(620px,1.18fr)] lg:gap-16 xl:gap-24"
     >
-      <ProjectsGameInfo :stats="stats" :tags="tags" />
-      <ProjectsGamePreview :apps="apps" />
+      <ProjectsGameInfo data-gsap-reveal="left" :stats="stats" :tags="tags" />
+      <ProjectsGamePreview data-gsap-reveal="preview" :apps="apps" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+const sectionRef = ref<HTMLElement | null>(null)
+
+useGsapReveal(sectionRef)
+
 const tags = ['Nuxt', 'UnoCSS', '腾讯 IM', 'AI 语音', '流式数据', 'Flutter Bridge', 'H5']
 
 const stats = [

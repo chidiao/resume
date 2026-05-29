@@ -1,5 +1,9 @@
 <template>
-  <section id="skills" class="relative scroll-mt-24 overflow-hidden bg-[#0F172A] py-18 text-slate-50 md:py-22 lg:py-24">
+  <section
+    id="skills"
+    ref="sectionRef"
+    class="relative scroll-mt-24 overflow-hidden bg-[#0F172A] py-18 text-slate-50 md:py-22 lg:py-24"
+  >
     <div
       class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(34,197,94,0.14),transparent_28%),radial-gradient(circle_at_22%_74%,rgba(59,130,246,0.12),transparent_26%),linear-gradient(180deg,#0F172A_0%,#020617_48%,#0F172A_100%)]"
     ></div>
@@ -16,3 +20,13 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const sectionRef = ref<HTMLElement | null>(null)
+
+useGsapReveal(sectionRef, {
+  start: 'top 64%',
+  stagger: 0.18,
+  duration: 0.9
+})
+</script>

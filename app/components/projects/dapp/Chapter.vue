@@ -1,15 +1,19 @@
 <template>
-  <section class="scroll-mt-24 px-5 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
+  <section ref="sectionRef" class="scroll-mt-24 px-5 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
     <div
       class="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[minmax(360px,0.82fr)_minmax(620px,1.18fr)] lg:gap-16 xl:gap-24"
     >
-      <ProjectsDappInfo :stats="stats" :tags="tags" />
-      <ProjectsDappPreview :projects="projects" />
+      <ProjectsDappInfo data-gsap-reveal="left" :stats="stats" :tags="tags" />
+      <ProjectsDappPreview data-gsap-reveal="preview" :projects="projects" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+const sectionRef = ref<HTMLElement | null>(null)
+
+useGsapReveal(sectionRef)
+
 const tags = ['Vue3', 'Nuxt 3', 'UniApp', 'web3.js', 'Wagmi', 'MetaMask', 'Klinecharts', 'i18n']
 
 const stats = [

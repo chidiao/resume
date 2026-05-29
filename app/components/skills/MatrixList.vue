@@ -3,6 +3,7 @@
     <div
       v-for="group in groups"
       :key="group.title"
+      data-gsap-reveal="fade-up"
       class="cursor-pointer rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-center backdrop-blur transition-colors duration-200 hover:border-sky-300/90 hover:shadow-lg hover:shadow-sky-500/15 md:p-4"
     >
       <div

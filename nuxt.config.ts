@@ -5,20 +5,17 @@ export default defineNuxtConfig({
   modules: ['@unocss/nuxt', '@nuxt/image'],
   vite: {
     optimizeDeps: {
-      include: [
-        'swiper/modules',
-        'swiper/vue',
-      ]
+      include: ['gsap', 'gsap/ScrollTrigger', 'swiper/modules', 'swiper/vue']
     }
   },
   image: {
     format: ['webp'],
     quality: 80,
-    densities: [1, 2],
+    densities: [1, 2]
   },
   app: {
     head: {
-      title: '个人简历',
+      title: '孙颖洲',
       link: [
         {
           rel: 'stylesheet',

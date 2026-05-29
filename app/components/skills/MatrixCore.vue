@@ -8,6 +8,7 @@
     <div class="absolute h-full max-h-96 w-px bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent"></div>
 
     <div
+      data-gsap-reveal="fade"
       class="skill-float skill-float-center relative z-10 w-full max-w-[320px] cursor-pointer rounded-2xl border border-emerald-400/25 bg-slate-950/90 px-5 py-4 text-center shadow-2xl shadow-emerald-950/30 backdrop-blur transition-colors duration-200 hover:border-sky-300/90 hover:shadow-sky-500/20 md:max-w-[340px] md:px-7 md:py-6"
     >
       <div
@@ -30,6 +31,7 @@
     <div
       v-for="node in nodes"
       :key="node.title"
+      :data-gsap-reveal="node.reveal"
       class="skill-float absolute hidden w-52 cursor-pointer rounded-xl border border-slate-700 bg-slate-950/85 p-4 shadow-xl shadow-black/20 backdrop-blur transition-colors duration-200 hover:border-sky-300/90 hover:shadow-sky-500/20 md:block lg:w-56"
       :class="[node.position, node.floatClass]"
     >
@@ -53,7 +55,8 @@ const nodes = [
     iconBg: 'bg-cyan-400/10',
     iconColor: 'text-cyan-300',
     position: '-left-6 top-4 lg:-left-10',
-    floatClass: 'skill-float-a'
+    floatClass: 'skill-float-a',
+    reveal: 'left'
   },
   {
     title: 'SSR / SSG',
@@ -62,7 +65,8 @@ const nodes = [
     iconBg: 'bg-blue-400/10',
     iconColor: 'text-blue-300',
     position: '-right-6 top-4 lg:-right-10',
-    floatClass: 'skill-float-b'
+    floatClass: 'skill-float-b',
+    reveal: 'right'
   },
   {
     title: '跨端交付',
@@ -71,7 +75,8 @@ const nodes = [
     iconBg: 'bg-emerald-400/10',
     iconColor: 'text-emerald-300',
     position: 'bottom-4 left-4 lg:left-12',
-    floatClass: 'skill-float-c'
+    floatClass: 'skill-float-c',
+    reveal: 'left'
   },
   {
     title: '业务扩展',
@@ -80,7 +85,8 @@ const nodes = [
     iconBg: 'bg-violet-400/10',
     iconColor: 'text-violet-300',
     position: 'bottom-4 right-4 lg:right-12',
-    floatClass: 'skill-float-d'
+    floatClass: 'skill-float-d',
+    reveal: 'right'
   }
 ]
 </script>
@@ -117,10 +123,10 @@ const nodes = [
 @keyframes skill-float {
   0%,
   100% {
-    transform: translateY(0);
+    translate: 0 0;
   }
   50% {
-    transform: translateY(-9px);
+    translate: 0 -9px;
   }
 }
 

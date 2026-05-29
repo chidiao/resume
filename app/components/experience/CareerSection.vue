@@ -1,6 +1,7 @@
 <template>
   <section
     id="experience"
+    ref="sectionRef"
     class="relative scroll-mt-24 overflow-hidden bg-[#020617] py-20 text-slate-50 md:py-24 lg:py-28"
   >
     <div
@@ -13,11 +14,17 @@
     <div
       class="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 md:gap-8 md:px-10 lg:px-12"
     >
-      <ExperienceCareerHeader />
+      <ExperienceCareerHeader data-gsap-reveal="fade-up" />
       <div class="grid items-center gap-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.72fr)] lg:gap-8">
-        <ExperienceCareerCurrent />
-        <ExperienceCareerArchive />
+        <ExperienceCareerCurrent data-gsap-reveal="left" />
+        <ExperienceCareerArchive data-gsap-reveal="right" />
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const sectionRef = ref<HTMLElement | null>(null)
+
+useGsapReveal(sectionRef)
+</script>
