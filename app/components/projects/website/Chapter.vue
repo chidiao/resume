@@ -24,24 +24,25 @@ const stats = [
 
 const projects = [
   {
-    name: 'MarsX',
-    pc: '/img/marsx-old-ow-pc.jpg',
-    mobile: '/img/marsx-old-ow-mb.jpg',
-    type: 'Gaming Website',
-    url: 'https://marsx.itopline.com/'
-  },
-  {
     name: 'Panda',
     pc: '/img/panda-ow-pc1.jpg',
     mobile: '/img/panda-ow-mb1.jpg',
     type: 'Brand Website',
-    url: 'https://panda.chidiao.xin/'
+    url: 'https://panda.chidiao.xin'
   },
   {
-    name: 'Panda Detail',
-    pc: '/img/panda-ow-pc2.jpg',
-    mobile: '/img/panda-ow-mb2.jpg',
-    type: 'Responsive Page'
+    name: 'GBEI',
+    pc: '/img/gbei-ow-pc.jpg',
+    mobile: '/img/gbei-ow-mb.jpg',
+    type: 'Business Website',
+    url: 'https://gbei.chidiao.xin'
+  },
+  {
+    name: 'Tank',
+    pc: '/img/tank-ow-pc.jpg',
+    mobile: '/img/tank-ow-mb.jpg',
+    type: 'Gaming Website',
+    url: 'https://tank.chidiao.xin'
   },
   {
     name: 'CRM',
@@ -56,11 +57,11 @@ const projects = [
     type: 'Landing Page'
   },
   {
-    name: 'Tank',
-    pc: '/img/tank-ow-pc.jpg',
-    mobile: '/img/tank-ow-mb.jpg',
-    type: 'Product Website',
-    url: 'https://tank.chidiao.xin/'
+    name: 'MarsX',
+    pc: '/img/marsx-old-ow-pc.jpg',
+    mobile: '/img/marsx-old-ow-mb.jpg',
+    type: 'Gaming Social',
+    url: 'https://marsx.itopline.com'
   }
 ]
 </script>
