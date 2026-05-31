@@ -16,7 +16,7 @@
         <span class="text-[#A78BFA]">{{ label }}</span>
       </div>
 
-      <h2 class="font-orbitron text-4xl font-bold tracking-tight text-[#F8FAFC] md:text-5xl">
+      <h2 class="text-4xl font-bold tracking-tight text-[#F8FAFC] md:text-5xl">
         {{ titlePrefix }} <span class="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent">{{ titleHighlight }}</span>
       </h2>
 

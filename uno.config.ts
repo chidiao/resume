@@ -6,8 +6,9 @@ export default defineConfig({
     presetWind4(),
     presetIcons(),
   ],
-  rules: [
-    ['font-orbitron', { 'font-family': "'Orbitron', sans-serif" }],
-    ['font-exo', { 'font-family': "'Exo 2', sans-serif" }],
-  ]
+  theme: {
+    fontFamily: {
+      sans: "'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', system-ui, sans-serif",
+    },
+  },
 })
