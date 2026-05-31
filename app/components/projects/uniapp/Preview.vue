@@ -35,28 +35,30 @@
       <div class="relative min-h-[380px] overflow-hidden sm:min-h-[470px] lg:min-h-[520px]">
         <div class="relative z-20 mx-auto w-full max-w-[520px] pt-1 sm:max-w-[560px] sm:pt-4 lg:max-w-[620px] lg:pt-2">
           <Swiper
-            :key="activeApp.name"
+            v-for="(app, appIndex) in apps"
+            :key="app.name"
+            v-show="activeAppIndex === appIndex"
             :slides-per-view="1"
             :space-between="16"
             :centered-slides="true"
             :breakpoints="swiperBreakpoints"
             class="overflow-hidden"
-            @swiper="setMainController"
-            @slide-change="handleSlideChange"
+            @swiper="setMainController(appIndex, $event)"
+            @slide-change="handleSlideChange(appIndex, $event)"
             @touch-start="pauseAutoplay"
             @slider-move="pauseAutoplay"
           >
             <SwiperSlide
-              v-for="(screenshot, index) in activeApp.screenshots"
-              :key="activeApp.name + screenshot"
+              v-for="(screenshot, index) in app.screenshots"
+              :key="app.name + screenshot"
               class="relative transition duration-300"
-              :class="activeSlideIndex === index ? 'z-20 opacity-100' : 'z-10 opacity-90'"
+              :class="activeAppIndex === appIndex && activeSlideIndex === index ? 'z-20 opacity-100' : 'z-10 opacity-90'"
             >
               <div
                 class="relative mx-auto aspect-[1378/2869] w-[66%] max-w-[210px] sm:w-full sm:max-w-[220px] lg:max-w-[250px]"
               >
                 <div
-                  v-if="!isLoaded(index)"
+                  v-if="!isLoaded(app.name, index)"
                   class="absolute inset-0 z-10 grid place-items-center border border-white/10 bg-white/[0.04] backdrop-blur-md"
                 >
                   <div
@@ -73,7 +75,7 @@
                   sizes="210px md:220px lg:250px"
                   loading="lazy"
                   format="webp"
-                  @load="markLoaded(index)"
+                  @load="markLoaded(app.name, index)"
                 />
               </div>
             </SwiperSlide>
@@ -150,7 +152,7 @@ const props = defineProps<{
 
 const activeAppIndex = ref(0)
 const activeSlideIndex = ref(0)
-const mainController = ref<any>(null)
+const mainControllers = ref<any[]>([])
 const loaded = reactive<Record<string, boolean[]>>(
   Object.fromEntries(props.apps.map((app) => [app.name, app.screenshots.map(() => false)]))
 )
@@ -182,11 +184,15 @@ onBeforeUnmount(() => {
   clearResumeTimer()
 })
 
-function setMainController(swiper: any) {
-  mainController.value = swiper
+function setMainController(appIndex: number, swiper: any) {
+  mainControllers.value[appIndex] = swiper
 }
 
-function handleSlideChange(swiper: any) {
+function handleSlideChange(appIndex: number, swiper: any) {
+  if (activeAppIndex.value !== appIndex) {
+    return
+  }
+
   activeSlideIndex.value = swiper.realIndex ?? swiper.activeIndex ?? 0
 }
 
@@ -196,22 +202,23 @@ function selectApp(index: number) {
   activeSlideIndex.value = 0
 
   nextTick(() => {
-    mainController.value?.slideTo(0)
+    mainControllers.value[index]?.update()
+    mainControllers.value[index]?.slideTo(0)
   })
 }
 
 function selectSlide(index: number) {
   pauseAutoplay()
   activeSlideIndex.value = index
-  mainController.value?.slideTo(index)
+  mainControllers.value[activeAppIndex.value]?.slideTo(index)
 }
 
-function isLoaded(index: number) {
-  return loaded[activeApp.value.name]?.[index]
+function isLoaded(appName: string, index: number) {
+  return loaded[appName]?.[index]
 }
 
-function markLoaded(index: number) {
-  loaded[activeApp.value.name][index] = true
+function markLoaded(appName: string, index: number) {
+  loaded[appName][index] = true
 }
 
 function startAutoplay() {
@@ -220,7 +227,7 @@ function startAutoplay() {
     const screenshots = activeApp.value.screenshots
     const nextIndex = (activeSlideIndex.value + 1) % screenshots.length
     activeSlideIndex.value = nextIndex
-    mainController.value?.slideTo(nextIndex)
+    mainControllers.value[activeAppIndex.value]?.slideTo(nextIndex)
   }, 4200)
 }
 

@@ -20,21 +20,26 @@
       </div>
 
       <div class="relative min-h-[430px] overflow-hidden sm:min-h-[520px] lg:min-h-[560px]">
-        <div class="relative z-20 mx-auto grid max-w-[620px] gap-4 lg:grid-cols-[minmax(210px,0.78fr)_minmax(230px,1fr)] lg:items-center">
+        <div
+          v-for="(project, projectIndex) in projects"
+          :key="project.name"
+          v-show="activeProjectIndex === projectIndex"
+          class="relative z-20 mx-auto grid max-w-[620px] gap-4 lg:grid-cols-[minmax(210px,0.78fr)_minmax(230px,1fr)] lg:items-center"
+        >
           <div class="order-2 border border-white/10 bg-[#0D1322]/82 p-4 backdrop-blur-md lg:order-1">
             <div class="mb-4 flex items-start justify-between gap-3">
               <div class="min-w-0">
-                <p class="font-mono text-xs text-violet-200">{{ activeProject.type }}</p>
-                <h3 class="mt-1 truncate text-xl font-semibold text-white">{{ activeProject.name }}</h3>
+                <p class="font-mono text-xs text-violet-200">{{ project.type }}</p>
+                <h3 class="mt-1 truncate text-xl font-semibold text-white">{{ project.name }}</h3>
               </div>
               <span class="i-fa-solid-cubes mt-1 size-4 flex-none text-cyan-200"></span>
             </div>
 
-            <p class="text-sm leading-7 text-slate-300">{{ activeProject.description }}</p>
+            <p class="text-sm leading-7 text-slate-300">{{ project.description }}</p>
 
             <div class="mt-5 flex flex-wrap gap-2">
               <span
-                v-for="tag in activeProject.tags"
+                v-for="tag in project.tags"
                 :key="tag"
                 class="border border-violet-300/15 bg-violet-300/8 px-2.5 py-1 text-xs text-violet-100"
               >
@@ -42,9 +47,9 @@
               </span>
             </div>
 
-            <div v-if="activeProject.links.length" class="mt-5 flex flex-wrap gap-2">
+            <div v-if="project.links.length" class="mt-5 flex flex-wrap gap-2">
               <a
-                v-for="link in activeProject.links"
+                v-for="link in project.links"
                 :key="link.label"
                 :href="link.url"
                 target="_blank"
@@ -58,35 +63,42 @@
 
             <div class="mt-5 grid grid-cols-3 gap-2">
               <button
-                v-for="(image, index) in activeProject.images"
+                v-for="(image, index) in project.images"
                 :key="image"
                 type="button"
                 class="aspect-[393/851] cursor-pointer overflow-hidden border transition duration-200"
-                :class="activeImageIndex === index ? 'border-violet-200 shadow-[0_0_18px_rgba(139,92,246,0.28)]' : 'border-white/10 opacity-70 hover:border-violet-300/60 hover:opacity-100'"
+                :class="activeProjectIndex === projectIndex && activeImageIndex === index ? 'border-violet-200 shadow-[0_0_18px_rgba(139,92,246,0.28)]' : 'border-white/10 opacity-70 hover:border-violet-300/60 hover:opacity-100'"
                 @click="selectImage(index)"
               >
-                <NuxtImg :src="image" :alt="activeProject.name + ' 缩略图 ' + (index + 1)" class="h-full w-full object-cover object-top" sizes="80px" loading="lazy" format="webp" />
+                <NuxtImg :src="image" :alt="project.name + ' 缩略图 ' + (index + 1)" class="h-full w-full object-cover object-top" sizes="80px" loading="lazy" format="webp" />
               </button>
             </div>
           </div>
 
           <div class="order-1 mx-auto w-[58%] max-w-[230px] border border-white/12 bg-black/25 p-2 backdrop-blur-md shadow-[0_28px_80px_rgba(139,92,246,0.2)] sm:w-[42%] sm:max-w-[260px] lg:order-2 lg:w-full lg:max-w-[286px]">
             <div class="aspect-[393/851] overflow-hidden bg-[#050816]">
-              <div v-if="!isLoaded(activeImage)" class="absolute inset-2 z-10 grid place-items-center border border-white/10 bg-white/[0.04] backdrop-blur-md">
-                <div class="grid place-items-center gap-2 text-center font-mono text-[10px] text-violet-100 sm:text-xs">
-                  <span class="i-fa-solid-spinner size-3.5 animate-spin"></span>
-                  <span>loading dapp</span>
+              <div
+                v-for="(image, imageIndex) in project.images"
+                :key="project.name + '-preview-' + image"
+                v-show="activeProjectIndex === projectIndex && activeImageIndex === imageIndex"
+                class="relative h-full w-full"
+              >
+                <div v-if="!isLoaded(image)" class="absolute inset-0 z-10 grid place-items-center border border-white/10 bg-white/[0.04] backdrop-blur-md">
+                  <div class="grid place-items-center gap-2 text-center font-mono text-[10px] text-violet-100 sm:text-xs">
+                    <span class="i-fa-solid-spinner size-3.5 animate-spin"></span>
+                    <span>loading dapp</span>
+                  </div>
                 </div>
+                <NuxtImg
+                  :src="image"
+                  :alt="project.name + ' Web3 DApp 预览'"
+                  class="h-full w-full object-contain object-top transition duration-500"
+                  sizes="230px md:260px lg:286px"
+                  loading="lazy"
+                  format="webp"
+                  @load="markLoaded(image)"
+                />
               </div>
-              <NuxtImg
-                :src="activeImage"
-                :alt="activeProject.name + ' Web3 DApp 预览'"
-                class="h-full w-full object-contain object-top transition duration-500"
-                sizes="230px md:260px lg:286px"
-                loading="lazy"
-                format="webp"
-                @load="markLoaded(activeImage)"
-              />
             </div>
           </div>
         </div>
@@ -142,7 +154,6 @@ const activeImageIndex = ref(0)
 const loaded = reactive<Record<string, boolean>>({})
 
 const activeProject = computed(() => props.projects[activeProjectIndex.value] ?? props.projects[0])
-const activeImage = computed(() => activeProject.value.images[activeImageIndex.value] ?? activeProject.value.images[0])
 
 function selectProject(index: number) {
   activeProjectIndex.value = index
