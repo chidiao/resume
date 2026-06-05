@@ -9,15 +9,20 @@
         class="mb-4 flex min-w-0 items-center justify-between gap-4 border border-white/10 bg-[#0D1322]/80 px-4 py-3 backdrop-blur"
       >
         <div class="flex min-w-0 items-center gap-3">
-          <NuxtImg
-            :src="activeApp.logo"
-            :alt="activeApp.name + ' logo'"
-            class="size-9 flex-none rounded-md object-cover"
-            width="36"
-            height="36"
-            loading="lazy"
-            format="webp"
-          />
+          <span class="relative size-9 flex-none">
+            <NuxtImg
+              v-for="(app, index) in apps"
+              :key="app.name + '-header-logo'"
+              v-show="activeAppIndex === index"
+              :src="app.logo"
+              :alt="app.name + ' logo'"
+              class="absolute inset-0 size-9 rounded-md object-cover"
+              width="36"
+              height="36"
+              loading="lazy"
+              format="webp"
+            />
+          </span>
           <div class="min-w-0">
             <p class="font-mono text-xs text-fuchsia-200">mobile.community.preview</p>
             <p class="mt-1 truncate text-sm font-medium text-white">{{ activeApp.name }}</p>
